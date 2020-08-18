@@ -1,0 +1,10 @@
+language: python
+python:
+  - 3.6
+install:
+  - make install
+script:
+  - make test
+after_success:
+  -curl -k -u $ZEROBUGUID:$ZEROBUGTOKEN --request POST -H "Content-Type:application/json" -d "{"pit":"130","targetid":"cfvXwo1DyjDb5dj0nDGu1597715866","ci":"Travis CI","tipo":"14"}" https://zerobug.co/ScanTarget/
+  
